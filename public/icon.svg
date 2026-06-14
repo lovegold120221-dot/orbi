@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#bg)"/>
+  <!-- Orbit ring -->
+  <ellipse cx="256" cy="256" rx="140" ry="140" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="3" transform="rotate(30 256 256)"/>
+  <ellipse cx="256" cy="256" rx="140" ry="140" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="3" transform="rotate(-30 256 256)"/>
+  <!-- Globe body -->
+  <circle cx="256" cy="256" r="110" fill="none" stroke="white" stroke-width="4"/>
+  <!-- Continents -->
+  <path d="M190 210 Q200 190 220 195 Q230 185 240 200 Q250 180 260 195 Q270 185 280 200 Q290 190 300 210 Q280 230 270 240 Q260 220 250 230 Q240 220 230 235 Q210 230 190 210Z" fill="white" opacity="0.6"/>
+  <path d="M180 290 Q200 270 220 280 Q230 275 240 285 Q250 275 260 285 Q270 280 280 295 Q270 310 250 320 Q230 310 210 315 Q190 310 180 290Z" fill="white" opacity="0.5"/>
+  <!-- Speech bubbles -->
+  <path d="M160 180 L180 165 L175 195Z" fill="white" opacity="0.9"/>
+  <path d="M145 170 Q140 160 148 152 Q156 145 165 152 Q170 160 162 168 L160 180 L148 172Z" fill="white" opacity="0.9"/>
+  <circle cx="152" cy="160" r="3" fill="#6366f1"/>
+  <circle cx="160" cy="158" r="3" fill="#6366f1"/>
+  <circle cx="156" cy="166" r="3" fill="#6366f1"/>
+  <!-- Right speech bubble -->
+  <path d="M340 310 L355 295 L358 320Z" fill="white" opacity="0.9"/>
+  <path d="M350 300 Q345 290 352 284 Q360 278 367 285 Q370 295 362 302 L358 320 L348 310Z" fill="white" opacity="0.9"/>
+  <circle cx="354" cy="294" r="3" fill="#6366f1"/>
+  <circle cx="362" cy="292" r="3" fill="#6366f1"/>
+  <circle cx="358" cy="300" r="3" fill="#6366f1"/>
+  <!-- Orbits around globe -->
+  <circle cx="256" cy="256" r="170" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" stroke-dasharray="8 8"/>
+  <circle cx="256" cy="256" r="190" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4 6"/>
+  <!-- Small orbital dots -->
+  <circle cx="86" cy="256" r="6" fill="white" opacity="0.3"/>
+  <circle cx="426" cy="256" r="6" fill="white" opacity="0.3"/>
+  <circle cx="256" cy="86" r="6" fill="white" opacity="0.3"/>
+  <circle cx="256" cy="426" r="6" fill="white" opacity="0.3"/>
+</svg>

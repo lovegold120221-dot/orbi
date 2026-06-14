@@ -1,0 +1,36 @@
+- generic [ref=e1]:
+  - generic [ref=e26] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e27]:
+      - img [ref=e28]
+    - generic [ref=e31]:
+      - button "Open issues overlay" [ref=e32]:
+        - generic [ref=e33]:
+          - generic [ref=e34]: "0"
+          - generic [ref=e35]: "1"
+        - generic [ref=e36]: Issue
+      - button "Collapse issues badge" [ref=e37]:
+        - img [ref=e38]
+  - main [ref=e40]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - img "Eburon AI" [ref=e43]
+        - generic [ref=e44]: Orbit Meeting
+      - heading "Sign in" [level=1] [ref=e45]
+      - paragraph [ref=e46]: Welcome back. Sign in to start or join meetings.
+      - generic [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e49]: Email
+          - textbox "Email" [active] [ref=e50]:
+            - /placeholder: you@example.com
+        - generic [ref=e51]:
+          - generic [ref=e52]: Password
+          - textbox "Password" [ref=e53]:
+            - /placeholder: Your password
+        - button "Sign in" [ref=e54] [cursor=pointer]
+      - generic [ref=e55]:
+        - link "Forgot password?" [ref=e56] [cursor=pointer]:
+          - /url: /auth/reset-password
+        - generic [ref=e57]: ·
+        - link "Create account" [ref=e58] [cursor=pointer]:
+          - /url: /auth/signup
+  - alert [ref=e59]

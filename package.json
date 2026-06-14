@@ -1,0 +1,63 @@
+{
+  "name": "orbit-meeting",
+  "version": "1.0.3",
+  "description": "Orbit Meeting — AI-powered real-time voice translation",
+  "author": "Eburon AI <hello@eburon.ai>",
+  "private": true,
+  "packageManager": "pnpm@10.18.0",
+  "scripts": {
+    "setup": "bash scripts/setup.sh",
+    "dev": "concurrently --kill-others-on-fail -n web,agent -c blue,magenta \"pnpm run dev:web\" \"pnpm run dev:agent\"",
+    "dev:web": "next dev",
+    "dev:agent": "cd translator && uv run python src/agent.py dev",
+    "dev:electron": "concurrently -n web,electron \"pnpm run dev:web\" \"wait-on http://localhost:3000 && electron electron/main.js\"",
+    "build": "next build",
+    "start": "next start",
+    "start:electron": "electron electron/main.js",
+    "electron:build": "pnpm build && electron-builder --config electron-builder.yml",
+    "electron:build:mac": "pnpm build && electron-builder --config electron-builder.yml --mac",
+    "electron:build:win": "pnpm build && electron-builder --config electron-builder.yml --win",
+    "electron:build:linux": "pnpm build && electron-builder --config electron-builder.yml --linux",
+    "lint": "eslint",
+    "pwa:icons": "cd public && magick convert icon.svg -resize 192x192 icons/icon-192x192.png && magick convert icon.svg -resize 512x512 icons/icon-512x512.png && magick convert icon.svg -resize 180x180 icons/apple-touch-icon.png && magick convert icon.svg -resize 96x96 icons/favicon-96x96.png && magick convert icon.svg -resize 16x16 favicon.ico && magick convert icon.svg -resize 150x150 icons/mstile-150x150.png",
+    "mobile:sync": "npx cap sync android",
+    "mobile:dev": "concurrently -n web,cap \"pnpm run dev:web\" \"wait-on http://localhost:3000 && CAP_SERVER_URL=http://localhost:3000 npx cap run android -l\"",
+    "mobile:build": "pnpm build && npx cap copy android && cd android && ./gradlew assembleDebug",
+    "mobile:build:release": "pnpm build && npx cap copy android && cd android && ./gradlew assembleRelease",
+    "mobile:open": "npx cap open android",
+    "deploy:vercel": "vercel --prod"
+  },
+  "dependencies": {
+    "@google/genai": "^2.8.0",
+    "@livekit/components-react": "^2.9.21",
+    "@livekit/components-styles": "^1.2.0",
+    "@supabase/ssr": "^0.12.0",
+    "@supabase/supabase-js": "^2.43.4",
+    "livekit-client": "^2.19.0",
+    "livekit-server-sdk": "^2.15.2",
+    "next": "16.2.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "main": "electron/main.js",
+  "devDependencies": {
+    "@capacitor/android": "^8.4.0",
+    "@capacitor/cli": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "concurrently": "^10.0.0",
+    "electron": "^35.0.0",
+    "electron-builder": "^26.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.6",
+    "typescript": "^5",
+    "wait-on": "^8.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "electron"
+    ]
+  }
+}

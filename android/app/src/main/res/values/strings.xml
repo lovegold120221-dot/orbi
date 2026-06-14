@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Orbit Meeting</string>
+    <string name="title_activity_main">Orbit Meeting</string>
+    <string name="package_name">ai.eburon.orbit.meeting</string>
+    <string name="custom_url_scheme">ai.eburon.orbit.meeting</string>
+</resources>

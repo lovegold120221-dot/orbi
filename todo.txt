@@ -1,0 +1,199 @@
+# Orbit Meeting Main Page Reference
+
+Develop this Orbit Meeting main page reference — Zoom-style meeting room first, with Orbit translation built in.
+
+## Orbit Meeting — Main Page Lock 🛰️
+
+Orbit Meeting main page = full meeting room UI.
+
+Screen Share is only one toolbar icon.
+Translation is another toolbar icon / feature.
+The app must feel like a real meeting app, not a standalone translator.
+
+Main Page Layout
+┌─────────────────────────────────────────────────────────────┐
+│ Top Bar                                                     │
+│ Orbit Meeting · Original Sound / Translation Status · View  │
+├─────────────────────────────────────────────────────────────┤
+│ Participant Filmstrip                                      │
+│ [Christopher] [Rebecca] [Teresa] [Ming-Na] [Victoria]       │
+├─────────────────────────────────────────────────────────────┤
+│ Main Speaker / Active Video Tile                           │
+│                                                             │
+│                  [ Active Speaker Video ]                   │
+│                                                             │
+│ Speaker Name                                                │
+├─────────────────────────────────────────────────────────────┤
+│ Bottom Toolbar                                              │
+│ Mic | Camera | Security | Participants | Chat | Share Screen│
+│ Translate | Captions | Record | Reactions | Leave           │
+└─────────────────────────────────────────────────────────────┘
+
+Top Bar
+Replace Zoom-style text with Orbit branding.
+Left:
+🛡 Orbit Secure
+- Send room message
+
+#### `/api/translation`
+Original Sound: Off
+Translation: English · Orus
+
+Right:
+View
+Better Orbit version:
+Orbit Meeting
+- Start recording
+- Stop recording
+
+#### `/api/session`
+Translation: English · Voice: Orus
+When the user selects a female voice:
+Translation: English · Voice: Aoede
+
+#### `/api/chat`
+Participant Filmstrip
+Keep this exact behavior:
+- Small participant tiles across the top
+- Name labels
+- Muted mic indicator
+- Active participant highlighted
+- Camera-off placeholder when needed
+- More participants scroll horizontally
+Example:
+[ Christopher 🔇 ] [ Rebecca ] [ Teresa ] [ Ming-Na 🔇 ] [ Victoria ]
+
+Main Speaker Area
+Main center area should show:
+- Active speaker video
+- Large tile
+- Thin Orbit highlight border
+- Name label bottom-left
+- Pre-flight component
+
+- **Breakout Rooms:**
+Translation status badge when active
+Example overlay:
+Sean
+Speaking · Translating to English
+When screen share is active:
+Sean is sharing screen
+Screen audio detected · Translating to English
+
+Bottom Toolbar
+This is the important lock.
+[ Mic ]
+[ Camera ]
+[ Security ]
+[ Participants ]
+[ Chat ]
+[ Share Screen ]
+[ Translate ]
+[ Captions ]
+[ Record ]
+[ Reactions ]
+[ Leave ]
+Screen Share
+Screen share stays as one icon:
+Share Screen
+It is not the primary page.It is just a meeting feature.
+Translate Button
+Add Orbit’s special button:
+Translate
+Clicking it opens the Orbit Translation panel.
+
+Orbit Translation Panel
+This opens from the Translate toolbar button.
+Orbit Translation
+────────────────────
+Target Language: English
+Voice: Orus
+Female Voice: Aoede
+Captions: On
+
+Audio Source:
+✓ Auto
+  Participants
+  Shared Screen
+  System Audio
+
+Output:
+✓ Play translated audio to me
+✓ Show captions
+Mute original audio: On
+
+Language Selector
+Default:
+English
+Dropdown should include:
+Search language...
+
+Default
+✓ English
+
+Country Presets
+Belgium
+  Dutch / Flemish
+  French
+  German
+
+All Languages
+Afrikaans
+Albanian
+Arabic
+Bengali
+Chinese
+Dutch
+English
+Filipino
+French
+German
+Japanese
+Korean
+Spanish
+Turkish
+...
+
+Voice Selector
+Default voices:
+Main formal voice: Orus
+Female voice: Aoede
+Dropdown:
+Voice
+────────────────
+✓ Orus · Formal
+Aoede · Female
+Kore
+Puck
+Charon
+Fenrir
+Leda
+
+Main Page Final Spec
+Orbit Meeting main page must look like a Zoom-style meeting room.
+
+# Orbit Meeting Todo List
+Required:
+- Top participant filmstrip
+- Large active speaker tile
+- Bottom meeting toolbar
+- Share Screen icon
+- Translate icon
+- Captions icon
+- Participants panel
+- Chat panel
+- Settings panel
+- Leave button
+
+Default translation:
+- English
+
+Default voice:
+- Orus
+
+Female voice option:
+- Aoede
+
+Screen share:
+- One feature only, not the whole app
+This screenshot is the correct visual direction: Orbit Meeting should look like this kind of meeting room, but branded as Orbit and enhanced with translation.
