@@ -3418,6 +3418,20 @@ body {
   margin-bottom: 16px;
 }
 
+.auth-logo-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.auth-brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 .auth-title {
   font-family: var(--font-display);
   font-size: 28px;
