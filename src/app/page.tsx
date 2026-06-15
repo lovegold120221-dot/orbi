@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
+import Image from "next/image";
 
 type ActivePanel = "join" | "schedule";
 
@@ -38,7 +39,6 @@ export default function Home() {
   // Persistent meetings states
   const [upcomingMeetings, setUpcomingMeetings] = useState<ScheduledMeeting[]>([]);
   const [tick, setTick] = useState(0);
-  const [isMounted, setIsMounted] = useState(false);
 
   const { profile, updateProfile } = useUser();
   const theme = profile?.theme || "dark";
@@ -49,7 +49,6 @@ export default function Home() {
 
   // Load default schedule values and persistent meetings on client mount
   useEffect(() => {
-    setIsMounted(true);
     const defaultDateTime = getDefaultScheduleTime(); // "YYYY-MM-DDTHH:mm"
     const [datePart, timePart] = defaultDateTime.split("T");
     const [initialHour24, initialMinute] = timePart.split(":");
@@ -73,26 +72,26 @@ export default function Home() {
 
   // Update countdown display every 30 seconds
   useEffect(() => {
-    if (!isMounted) return;
     const interval = setInterval(() => {
       setTick((t) => t + 1);
     }, 30000);
     return () => clearInterval(interval);
-  }, [isMounted]);
+  }, []);
 
   // Redirect unauthenticated users to the login page.
   // Skip redirect if Supabase isn't configured (anonymous usage).
   useEffect(() => {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     if (!supabaseUrl) {
-      setAuthCheckDone(true);
-      return;
+      const timer = setTimeout(() => setAuthCheckDone(true), 0);
+      return () => clearTimeout(timer);
     }
     if (authLoading) return;
-    setAuthCheckDone(true);
+    const timer = setTimeout(() => setAuthCheckDone(true), 0);
     if (!user) {
       router.replace("/auth/login");
     }
+    return () => clearTimeout(timer);
   }, [user, authLoading, router]);
 
   function loadUpcomingMeetings() {
@@ -328,7 +327,7 @@ export default function Home() {
       {/* Top Sticky Navigation Bar */}
       <header className="entry-navbar">
         <Link href="/" className="entry-navbar-brand">
-          <img src="/icon-eburon.svg" alt="Eburon AI" className="entry-brand-logo" />
+          <Image src="/icon-eburon.svg" alt="Eburon AI" className="entry-brand-logo" width={24} height={24} />
           <span>Orbit Meeting</span>
         </Link>
         <div className="entry-navbar-right">
@@ -537,7 +536,7 @@ export default function Home() {
           </div>
 
           {/* Upcoming Meetings Sidebar */}
-          <aside className="entry-upcoming" aria-label="Upcoming meetings">
+          <aside className="entry-upcoming" aria-label="Upcoming meetings" data-tick={tick}>
             <div>
               <p className="entry-panel-eyebrow">Next up</p>
               <h2>Upcoming Meetings</h2>

@@ -2717,7 +2717,73 @@ body {
 }
 
 .screen-share-status {
-  .entry-shell {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.screen-share-stop-btn {
+  pointer-events: auto;
+  background: #e04040;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.screen-share-stop-btn:hover {
+  background: #c53030;
+}
+
+.screen-share-translate-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  font-family: inherit;
+}
+
+.screen-share-translate-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.screen-share-translate-btn--on {
+  background: rgba(79, 140, 255, 0.2);
+  border-color: rgba(79, 140, 255, 0.4);
+  color: #4f8cff;
+}
+
+.screen-share-translate-btn--on:hover {
+  background: rgba(79, 140, 255, 0.3);
+  color: #fff;
+}
+
+.ss-translate-icon {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.entry-shell {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
