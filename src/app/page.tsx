@@ -370,7 +370,7 @@ export default function Home() {
                 onClick={createSession}
                 disabled={creating}
                 id="create-session-btn"
-                aria-pressed={false}
+                aria-pressed="false"
               >
                 <span className="meeting-action-icon" aria-hidden>
                   <VideoPlusIcon />
@@ -384,7 +384,7 @@ export default function Home() {
                   setActivePanel("join");
                   setJoinError("");
                 }}
-                aria-pressed={activePanel === "join"}
+                aria-pressed={activePanel === "join" ? "true" : "false"}
               >
                 <span className="meeting-action-icon" aria-hidden>
                   <JoinIcon />
@@ -395,7 +395,7 @@ export default function Home() {
               <button
                 className={`meeting-action meeting-action--schedule`}
                 onClick={showSchedulePanel}
-                aria-pressed={activePanel === "schedule"}
+                aria-pressed={activePanel === "schedule" ? "true" : "false"}
               >
                 <span className="meeting-action-icon" aria-hidden>
                   <CalendarIcon />
@@ -409,7 +409,7 @@ export default function Home() {
               {activePanel === "join" ? (
                 <form
                   className="entry-form"
-                  onSubmit={(event) => {
+                  onSubmit={(event: React.FormEvent) => {
                     event.preventDefault();
                     joinMeeting();
                   }}
@@ -422,7 +422,7 @@ export default function Home() {
                     <span>Meeting link or ID</span>
                     <input
                       value={joinValue}
-                      onChange={(event) => {
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setJoinValue(event.target.value);
                         setJoinError("");
                       }}
@@ -445,7 +445,7 @@ export default function Home() {
                     <span>Topic</span>
                     <input
                       value={scheduleTitle}
-                      onChange={(event) => setScheduleTitle(event.target.value)}
+                      onChange={(event: React.ChangeEvent<HTMLInputElement>) => setScheduleTitle(event.target.value)}
                       maxLength={60}
                     />
                   </label>
@@ -456,7 +456,7 @@ export default function Home() {
                       <input
                         type="date"
                         value={scheduleDate}
-                        onChange={(event) => setScheduleDate(event.target.value)}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setScheduleDate(event.target.value)}
                       />
                     </label>
                     
@@ -465,8 +465,10 @@ export default function Home() {
                       <div className="time-select-container">
                         <select
                           value={scheduleHour}
-                          onChange={(e) => setScheduleHour(e.target.value)}
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setScheduleHour(e.target.value)}
                           className="time-select-dropdown"
+                          title="Hour"
+                          aria-label="Hour"
                         >
                           {Array.from({ length: 12 }, (_, i) => String(i + 1).padStart(2, "0")).map(h => (
                             <option key={h} value={h}>{h}</option>
@@ -475,8 +477,10 @@ export default function Home() {
                         <span className="time-select-separator">:</span>
                         <select
                           value={scheduleMinute}
-                          onChange={(e) => setScheduleMinute(e.target.value)}
+                          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setScheduleMinute(e.target.value)}
                           className="time-select-dropdown"
+                          title="Minute"
+                          aria-label="Minute"
                         >
                           {Array.from({ length: 12 }, (_, i) => String(i * 5).padStart(2, "0")).map(m => (
                             <option key={m} value={m}>{m}</option>
@@ -485,7 +489,7 @@ export default function Home() {
                         <button
                           type="button"
                           className="time-period-toggle"
-                          onClick={() => setSchedulePeriod(prev => prev === "AM" ? "PM" : "AM")}
+                          onClick={() => setSchedulePeriod((prev: "AM" | "PM") => prev === "AM" ? "PM" : "AM")}
                         >
                           {schedulePeriod}
                         </button>

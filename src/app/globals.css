@@ -2733,8 +2733,8 @@ body {
   justify-content: space-between;
   padding: 16px 40px;
   background: rgba(15, 17, 21, 0.45);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
@@ -2844,8 +2844,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   background: rgba(23, 26, 33, 0.35);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   color: var(--fg);
   font-family: var(--font-body);
   font-size: 16px;
@@ -2909,10 +2909,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   background: rgba(23, 26, 33, 0.45);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
-  min-height: auto;
+  min-height: 0;
 }
 
 .entry-form {
@@ -3027,8 +3027,8 @@ body {
   outline: none;
   cursor: pointer;
   padding: 6px 4px;
-  appearance: none;
   -webkit-appearance: none;
+  appearance: none;
   text-align: center;
 }
 
@@ -3155,8 +3155,8 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
   background: rgba(23, 26, 33, 0.45);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -3329,8 +3329,8 @@ body {
   gap: 8px;
   padding: 40px;
   background: rgba(23, 26, 33, 0.45);
-  backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   box-shadow: 
