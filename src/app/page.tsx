@@ -370,7 +370,6 @@ export default function Home() {
                 onClick={createSession}
                 disabled={creating}
                 id="create-session-btn"
-                aria-pressed="false"
               >
                 <span className="meeting-action-icon" aria-hidden>
                   <VideoPlusIcon />
@@ -379,12 +378,11 @@ export default function Home() {
               </button>
 
               <button
-                className={`meeting-action meeting-action--join`}
+                className={`meeting-action meeting-action--join ${activePanel === "join" ? "meeting-action--active" : ""}`}
                 onClick={() => {
                   setActivePanel("join");
                   setJoinError("");
                 }}
-                aria-pressed={activePanel === "join" ? "true" : "false"}
               >
                 <span className="meeting-action-icon" aria-hidden>
                   <JoinIcon />
@@ -393,9 +391,8 @@ export default function Home() {
               </button>
 
               <button
-                className={`meeting-action meeting-action--schedule`}
+                className={`meeting-action meeting-action--schedule ${activePanel === "schedule" ? "meeting-action--active" : ""}`}
                 onClick={showSchedulePanel}
-                aria-pressed={activePanel === "schedule" ? "true" : "false"}
               >
                 <span className="meeting-action-icon" aria-hidden>
                   <CalendarIcon />

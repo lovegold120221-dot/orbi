@@ -2875,7 +2875,8 @@ body {
   opacity: 0.72;
 }
 
-.meeting-action[aria-pressed="true"] {
+.meeting-action[aria-pressed="true"],
+.meeting-action--active {
   border-color: var(--accent);
   background: rgba(79, 140, 255, 0.12);
   box-shadow: 
