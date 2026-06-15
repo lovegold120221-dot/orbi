@@ -49,25 +49,28 @@ export default function Home() {
 
   // Load default schedule values and persistent meetings on client mount
   useEffect(() => {
-    const defaultDateTime = getDefaultScheduleTime(); // "YYYY-MM-DDTHH:mm"
-    const [datePart, timePart] = defaultDateTime.split("T");
-    const [initialHour24, initialMinute] = timePart.split(":");
+    const timer = setTimeout(() => {
+      const defaultDateTime = getDefaultScheduleTime(); // "YYYY-MM-DDTHH:mm"
+      const [datePart, timePart] = defaultDateTime.split("T");
+      const [initialHour24, initialMinute] = timePart.split(":");
 
-    const initialHour = parseInt(initialHour24, 10);
-    const initialPeriod = initialHour >= 12 ? "PM" : "AM";
-    const hour12Val = initialHour % 12 === 0 ? 12 : initialHour % 12;
-    const initialHour12 = String(hour12Val).padStart(2, "0");
+      const initialHour = parseInt(initialHour24, 10);
+      const initialPeriod = initialHour >= 12 ? "PM" : "AM";
+      const hour12Val = initialHour % 12 === 0 ? 12 : initialHour % 12;
+      const initialHour12 = String(hour12Val).padStart(2, "0");
 
-    const minNum = parseInt(initialMinute, 10);
-    const roundedMin = Math.round(minNum / 5) * 5;
-    const initialMinuteRounded = String(roundedMin === 60 ? 55 : roundedMin).padStart(2, "0");
+      const minNum = parseInt(initialMinute, 10);
+      const roundedMin = Math.round(minNum / 5) * 5;
+      const initialMinuteRounded = String(roundedMin === 60 ? 55 : roundedMin).padStart(2, "0");
 
-    setScheduleDate(datePart);
-    setScheduleHour(initialHour12);
-    setScheduleMinute(initialMinuteRounded);
-    setSchedulePeriod(initialPeriod);
-    
-    loadUpcomingMeetings();
+      setScheduleDate(datePart);
+      setScheduleHour(initialHour12);
+      setScheduleMinute(initialMinuteRounded);
+      setSchedulePeriod(initialPeriod);
+      
+      loadUpcomingMeetings();
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   // Update countdown display every 30 seconds
